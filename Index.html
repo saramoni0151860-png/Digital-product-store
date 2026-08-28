@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shima Reels Store</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#222;
+}
+
+header{
+    background:linear-gradient(135deg,#6c2bd9,#a855f7);
+    color:white;
+    text-align:center;
+    padding:35px 15px;
+}
+
+header h1{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:16px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:25px 15px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.hero h2{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.hero p{
+    color:#666;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-img{
+    height:180px;
+    background:linear-gradient(135deg,#7c3aed,#ec4899);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:45px;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.5;
+    margin-bottom:12px;
+}
+
+.price{
+    font-size:25px;
+    font-weight:bold;
+    color:#7c3aed;
+    margin-bottom:15px;
+}
+
+.buy-btn{
+    width:100%;
+    border:none;
+    padding:13px;
+    border-radius:10px;
+    background:#7c3aed;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.buy-btn:hover{
+    background:#5b21b6;
+}
+
+.info{
+    background:white;
+    margin-top:30px;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.info h2{
+    margin-bottom:15px;
+}
+
+.info p{
+    line-height:1.7;
+    color:#555;
+}
+
+.contact{
+    margin-top:20px;
+    text-align:center;
+}
+
+.contact a{
+    display:inline-block;
+    margin:6px;
+    padding:12px 20px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    background:#25D366;
+}
+
+footer{
+    margin-top:35px;
+    background:#18181b;
+    color:white;
+    text-align:center;
+    padding:25px 10px;
+    font-size:14px;
+}
+
+/* Payment popup */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.65);
+    padding:20px;
+}
+
+.modal-box{
+    max-width:420px;
+    margin:80px auto;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+}
+
+.modal-box h2{
+    margin-bottom:15px;
+}
+
+.modal-box p{
+    line-height:1.7;
+    margin-bottom:10px;
+}
+
+.bkash{
+    background:#e2136e;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.close{
+    float:right;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.order-btn{
+    display:block;
+    text-align:center;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:13px;
+    border-radius:10px;
+    margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛍️ Shima Reels Store</h1>
+    <p>Premium Ready-Made Reels for Your Social Media</p>
+</header>
+
+<div class="container">
+
+    <div class="hero">
+        <h2>🔥 Our Digital Reels Collection</h2>
+        <p>Ready-made videos — Download and use for your social media.</p>
+    </div>
+
+    <div class="products">
+
+        <!-- Product 1 -->
+        <div class="card">
+            <div class="card-img">🎬</div>
+
+            <div class="card-content">
+                <h3>20 Viral Reels Pack</h3>
+
+                <p>
+                    20টি ready-made high-quality reels.
+                    Facebook, Instagram ও TikTok-এর জন্য উপযোগী।
+                </p>
+
+                <div class="price">৳99</div>
+
+                <button class="buy-btn"
+                onclick="openPayment('20 Viral Reels Pack','99')">
+                    🛒 Buy Now
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Product 2 -->
+        <div class="card">
+            <div class="card-img">🔥</div>
+
+            <div class="card-content">
+                <h3>50 Viral Reels Pack</h3>
+
+                <p>
+                    50টি premium ready-made reels.
+                    আপনার social media content তৈরিতে সময় বাঁচান।
+                </p>
+
+                <div class="price">৳199</div>
+
+                <button class="buy-btn"
+                onclick="openPayment('50 Viral Reels Pack','199')">
+                    🛒 Buy Now
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Product 3 -->
+        <div class="card">
+            <div class="card-img">💎</div>
+
+            <div class="card-content">
+                <h3>100 Reels Mega Pack</h3>
+
+                <p>
+                    100টি ready-made reels-এর সম্পূর্ণ collection।
+                    Content creators-এর জন্য দারুণ।
+                </p>
+
+                <div class="price">৳349</div>
+
+                <button class="buy-btn"
+                onclick="openPayment('100 Reels Mega Pack','349')">
+                    🛒 Buy Now
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>📦 কী পাবেন?</h2>
+
+        <p>
+            ✅ High-quality Reels<br>
+            ✅ Ready to use<br>
+            ✅ MP4 format<br>
+            ✅ Social media friendly<br>
+            ✅ Payment করার পর download/access দেওয়া হবে
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h2>💳 Payment Method</h2>
+
+        <p>
+            বর্তমানে আমরা bKash-এর মাধ্যমে payment গ্রহণ করছি।
+            Product কেনার জন্য নিচের Buy Now button ব্যবহার করুন।
+        </p>
+
+        <div class="contact">
+
+            <a href="https://wa.me/8801XXXXXXXXX">
+                💬 WhatsApp Order
+            </a>
+
+            <a href="https://m.me/YOUR_PAGE_USERNAME">
+                📩 Messenger Order
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Payment Modal -->
+
+<div id="paymentModal" class="modal">
+
+    <div class="modal-box">
+
+        <span class="close" onclick="closePayment()">×</span>
+
+        <h2>🛒 Complete Your Order</h2>
+
+        <p>
+            Product:
+            <strong id="productName"></strong>
+        </p>
+
+        <p>
+            Price:
+            <strong>৳<span id="productPrice"></span></strong>
+        </p>
+
+        <div class="bkash">
+
+            <strong>📱 bKash Payment</strong>
+
+            <p>
+                Send Money করুন এই নম্বরে:
+            </p>
+
+            <h2>01518604097</h2>
+
+            <p>
+                Payment করার পর আপনার Transaction ID
+                এবং আপনার নাম Messenger-এ পাঠান।
+            </p>
+
+        </div>
+
+        <a class="order-btn"
+        href="https://wa.me/8801XXXXXXXXX">
+            ✅ Payment Complete — Send Order
+        </a>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2026 Shima Reels Store | All Rights Reserved
+</footer>
+
+
+<script>
+
+function openPayment(name,price){
+
+    document.getElementById("productName").innerText=name;
+
+    document.getElementById("productPrice").innerText=price;
+
+    document.getElementById("paymentModal").style.display="block";
+
+}
+
+function closePayment(){
+
+    document.getElementById("paymentModal").style.display="none";
+
+}
+
+window.onclick=function(event){
+
+    let modal=document.getElementById("paymentModal");
+
+    if(event.target==modal){
+
+        modal.style.display="none";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
